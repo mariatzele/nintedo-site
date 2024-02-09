@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.43/build/spline-viewer.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/super-mario-256" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/chlorinap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/2f72a845f8.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    
+    @import url('https://fonts.cdnfonts.com/css/super-mario-256');
+    @import url('https://fonts.cdnfonts.com/css/chlorinap');
+    html body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        letter-spacing: 5px;
+        font-family: 'Super Mario 256', sans-serif;
+        color: azure;
+        background-color: rgb(17, 17, 17);
+    }
+    
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        height: 93vh;
+    }
+    
+    .hero-content {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        font-size: 1.5em;
+        letter-spacing: 0.1em;
+        width: 100vw;
+    }
+    
+    .hero-content>p {
+        margin-top: 2em;
+    }
+    
+    .spline-container {
+        margin-top: 5vh;
+        height: 55vh;
+    }
+    
+    nav {
+        width: 100vw;
+    }
+    
+    .navigation-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
+        height: 7vh;
+        margin: 2em;
+        background-color: rgb(17, 17, 17);
+    }
+    
+    .navigation-menu {
+        display: "";
+        position: absolute;
+        z-index: 10;
+        font-family: 'Super Mario 256', sans-serif;
+        width: 100vw;
+        height: auto;
+        background-color: rgb(17, 17, 17);
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        line-height: 3em;
+    }
+    
+    .navigation-menu>li {
+        display: block;
+        text-decoration: none;
+    }
+    
+    .navigation-menu>li :hover {
+        background-color: #555;
+        color: white;
+    }
+    
+    #menu {
+        position: relative;
+    }
+    
+    #logo-container {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #photo-logo {
+        display: inline-block;
+        max-height: 60%;
+        width: auto;
+        object-fit: contain;
+        margin-right: 2em;
+    }
+    
+    .text-content {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+    }
+    
+    .text-content>p {
+        margin: 2em;
+        align-self: center;
+        font-size: 1em;
+        line-height: 1.1em;
+    }
+    
+    #button {
+        align-self: flex-end;
+        border-radius: 30px;
+        width: 7em;
+        padding: 1.5em;
+        border-style: none;
+        color: #0a0a23;
+        letter-spacing: 3px;
+        background-color: white;
+        cursor: pointer;
+        margin-right: 2em;
+    }
+    
+    #button:focus {
+        outline-color: transparent;
+        outline-style: solid;
+        box-shadow: 0 0 0 1px #f9ff91;
+        transition: 0.2s;
+    }
+    
+    #button:hover {
+        color: azure;
+        background-color: rgb(247, 16, 16);
+    }
+    
+    .magic-box-container {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Chlorinap', sans-serif;
+        height: 90vh;
+    }
+    
+    .magic-box {
+        display: flex;
+        height: 40vh;
+        justify-content: center;
+    }
+    
+    .magic-box-container>p {
+        font-size: 1em;
+        margin: 2em;
+        line-height: 1.1em;
+    }
+    
+    .magic-box-container>img {
+        display: flex;
+        align-self: center;
+        width: 70%;
+    }
+    
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 60vh;
+    }
+    
+    .footer-container-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        margin-top: 5em;
+    }
+    
+    .footer-container-text>p>span {
+        align-self: center;
+        font-size: 2em;
+    }
+    
+    .footer-container>p {
+        font-size: 1em;
+        margin: 2em;
+        line-height: 1.1em;
+    }
+    
+    .social-media-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+    
+    .social-media-icons>i {
+        margin: 2em;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+    }
+    
+    #basket-logo {
+        height: 20px;
+        width: auto;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="navigation-bar">
+            <i id="menu" onclick="menu-button" class="fa-solid fa-bars">
+        </i>
+            <!-- <div class="navigation-menu">
+            <ul>
+                <li>HOME</li>
+                <li>GAMES</li>
+                <li>ABOUT</li>
+                <li>COMMUNITY</li>
+            </ul>
+        </div> -->
+            <img id="photo-logo" src="Super-Mario-Odyssey.png" alt="Super-Mario-Odyssey-Logo">
+            <img id="basket-logo" src="Basket.png">
+        </div>
+    </nav>
+    <div class="hero-content">
+        <p>
+            <span class="individual-letters">
+            <span style="color: #049cd8;">N</span>
+            <span style="color: #fbd000;">I</span>
+            <span style="color: #e52521;">N</span>
+            <span style="color: #43b047;">T</span>
+            <span style="color: #049cd8;">E</span>
+            <span style="color: #fbd000;">N</span>
+            <span style="color: #e52521;">D</span>
+            <span style="color: #43b047;">O</span>
+        </p>
+    </div>
+    <div class="hero-container">
+        <div class="spline-container">
+            <spline-viewer hint url="https://prod.spline.design/QeJm2yvUj19maFph/scene.splinecode"></spline-viewer>
+        </div>
+        <div class="text-content">
+            <p>Introducing the Nintendo all-new magic! Unleash endless fun with mind-blowing graphics, a treasure trove of games, and play your way! Elevate your gaming experience now!</p>
+        </div>
+        <button id="button">Buy</button>
+    </div>
+    <div class="magic-box-container">
+        <div class="magic-box">
+            <spline-viewer url="https://prod.spline.design/hg4-w6m6w3MESJfa/scene.splinecode"></spline-viewer>
+        </div>
+        <p>Super Mario Odyssey</p>
+        <p>Mario's cruising through crazy cosmic places, grabbing cool powers, and exploring all sorts of wild planets. Play with a bud, enjoy the crazy weather, and pimp your Odyssey ship.</p>
+        <img src="Super-Mario-Slide-In-removebg-preview.png">
+    </div>
+    <div class="footer-container">
+        <div class="footer-container-text">
+            <p>NINTENDO
+                <span style="color: #049cd8;">S</span>
+                <span style="color: #fbd000;">W</span>
+                <span style="color: #e52521;">I</span>
+                <span style="color: #43b047;">T</span>
+                <span style="color: #049cd8;">C</span>
+                <span style="color: #fbd000;">H</span>
+            </p>
+        </div>
+        <p>It's all about rescuing princess Peach, rocking power-ups like mushrooms and flowers, and cruising on yosh, the coolest dino sidekick ever. The game's a total nostalgia trip with catchy tunes and epic adventures!</p>
+        <div class="social-media-icons">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+        </div>
+    </div>
+</body>
+<script src="mobile-nintendo.js">
+</script>
+
+</html>
