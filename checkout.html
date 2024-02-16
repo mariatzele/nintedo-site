@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2f72a845f8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>Checkout</title>
+</head>
+<style>
+     :root {
+        --bd-indigo-500: #6610f2;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    
+    @import url('https://fonts.cdnfonts.com/css/super-mario-256');
+    @import url('https://fonts.cdnfonts.com/css/chlorinap');
+    html body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff;
+    }
+    
+    @media (prefers-color-scheme: light) {
+        html body {
+            background-color: var(--bs-body-bg);
+            color: var(--bs-emphasis-color-rgb);
+        }
+        .shipping-address {
+            border: 0.7px solid #6610f2;
+        }
+        .shipping-address-items {
+            color: #c29ffa;
+        }
+        .h2 {
+            color: var(--bs-emphasis-color-rgb);
+        }
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        html body {
+            background-color: var(--bs-body-bg);
+            color: var(--bs-emphasis-color-rgb);
+        }
+        .shipping-address {
+            border: 0.7px solid #6610f2;
+        }
+        .shipping-address-items {
+            color: var(--bs-emphasis-color-rgb);
+        }
+        .h2 {
+            color: var(--bs-emphasis-color-rgb);
+        }
+    }
+    
+    nav {
+        width: 100vw;
+    }
+    
+    #menu {
+        position: relative;
+    }
+    
+    #logo-container {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #photo-logo {
+        display: inline-block;
+        max-height: 60%;
+        width: auto;
+        object-fit: contain;
+        margin-right: 2em;
+    }
+    
+    #basket-logo {
+        height: 20px;
+        width: auto;
+    }
+    
+    .navigation-bar-container {
+        height: 7vh;
+        width: 100vw;
+    }
+    
+    .navigation-bar {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        background-color: inherit;
+    }
+    
+    ul>li:hover {
+        color: #049cd8;
+        background-color: #f9ff91;
+    }
+    
+    #menu {
+        display: none;
+        position: absolute;
+        color: #000000;
+        cursor: pointer;
+        width: 100%;
+        color: #fff;
+        background-color: rgb(17, 17, 17);
+        z-index: 10;
+    }
+    
+    #menu ul {
+        padding: 0;
+        margin: 0;
+        line-height: 2.5em;
+    }
+    
+    #menu li {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        width: 100%;
+    }
+    
+    li:hover {
+        background-color: aqua;
+    }
+    
+    ul li img {
+        display: none;
+        position: relative;
+        justify-content: center;
+    }
+    
+    ul li:hover img {
+        display: block;
+        width: auto;
+    }
+    
+    #photo-logo {
+        margin: 0;
+        height: 100%;
+        cursor: pointer;
+    }
+    
+    #menu-icon {
+        margin-left: 2em;
+        cursor: pointer;
+        left: 0;
+        top: 0;
+    }
+    
+    #basket {
+        margin-right: 2em;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .li-space {
+        padding-right: 2em;
+        padding-left: 2em;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    .shipping-address {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        height: fit-content;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border-radius: 10px;
+    }
+    
+    .shipping-address-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        height: 100%;
+    }
+    
+    .shipping-address-items>span {
+        align-items: start;
+        width: 100%;
+    }
+    
+    .h2 {
+        margin: 0;
+        margin-top: 1em;
+        margin-bottom: 2em;
+        color: #8540f5;
+    }
+    
+    span {
+        margin-top: 0.7em;
+    }
+    
+    #Proceed-to-pay {
+        background-color: #6610f2;
+        border: #6610f2;
+    }
+    
+    .hero-container>i {
+        align-self: flex-start;
+        padding: 2em;
+    }
+    
+    @media screen and (min-width: 480px) {
+        .navigation-bar-container {
+            height: 8vh;
+        }
+    }
+</style>
+
+<body>
+    <div class="navigation-bar-container">
+        <div class="navigation-bar">
+            <i id="menu-icon" onclick="menubutton()" class="fa-solid fa-bars"></i>
+            <img id="photo-logo" src="Super-Mario-Odyssey.png" alt="Super-Mario-Odyssey-Logo">
+            <a id="basket" href="http://127.0.0.1:3000/checkout.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+        <div id="menu">
+            <ul>
+                <li class="li-space">HOME <img src="Super-Mario-Bullet.png"></li>
+                <li class="li-space">GAMES <img src="Super-Mario-Bullet.png"></li>
+                <li class="li-space">ABOUT <img src="Super-Mario-Bullet.png"></li>
+                <li class="li-space">COMMUNITY <img src="Super-Mario-Bullet.png"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="hero-container">
+
+        <div class="container btn-group-vertical" role="group" aria-label="Vertical button group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Credit Card</button>
+
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+            </ul>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+        </div>
+        <!-- <i class="fa-solid fa-arrow-left" style="color:var(--bs-tertiary-color-rgb);"></i>
+        <h2 class="h2">Checkout</h2>
+        <div class="shipping-address">
+            <div class="shipping-address-items">
+                <span>Card Number</span>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control only-numbers" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                </div>
+                <div class="container row g-3 p-0 ml-0 mr-2 mb-2">
+                    <div class="col p-0 me-1">
+                        <span>Expired</span>
+                        <input type="text" class="form-control only-numbers" aria-label="Expired" required>
+                    </div>
+                    <div class="col p-0 ms-1">
+                        <span>CVV</span>
+                        <input type="text" class="form-control only-numbers" aria-label="CVV" maxlength="3" required>
+                    </div>
+                </div>
+                <span>Card Holder</span>
+                <div class="input-group mb-3 ">
+                    <input type="text " class="form-control" aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
+                </div>
+
+                <div class="container form-check form-switch mt-5">
+                    <input class="form-check-input" type="checkbox" role="switch " id="flexSwitchCheckChecked " checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Save as main payment method</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="container row g-2 mt-auto m-4 pt-1" style="width: 80%;">
+            <button class="btn btn-primary mt-auto m-0" id="Proceed-to-pay " type="button">Proceed to pay</button>
+        </div> -->
+    </div>
+</body>
+
+<script>
+    // get all DOM elements with class "only-number"
+    const numberInputs = document.getElementsByClassName("only-numbers");
+
+    for (let i = 0; i < numberInputs.length; i++) {
+        const numberInput = numberInputs[i];
+        // add listener for each element
+        numberInput.addEventListener("input", () => {
+            // get value of input (converted to a number)
+            const value = Number(numberInput.value);
+            // if it's "Not a Number" (NaN) then remove it from the string
+            if (Number.isNaN(value)) {
+                numberInput.value = numberInput.value.slice(0, -1);
+            }
+        })
+    }
+
+    function setColourScheme(colorScheme) {
+        document.getElementsByTagName('html')[0].setAttribute('data-bs-theme', colorScheme);
+    }
+
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setColourScheme("dark");
+    } else {
+        setColourScheme("light");
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        if (event.matches) {
+            setColourScheme("dark");
+        } else {
+            setColourScheme("light");
+        }
+    });
+</script>
+
+</html>
+<!-- <span>Apartment, suite etc. (Optional)</span>
+                <input type="text " class="form-control mb-3 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
+
+                <span>City</span>
+                <input type="text " class="form-control mb-3 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
+
+                <span>Country/Region</span>
+                <input type="text " class="form-control mb-3 " id="Country/Region " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
+                <datalist id="Country/Region ">
+                    <option value="Greece ">
+                    <option value="Ireland ">
+                    <option value="United Kingdom ">
+                    <option value="Spain ">
+                    <option value="Italy ">
+                </datalist>
+                <span>Postal Code</span>
+                <input type="text " class="form-control mb-3 " id="Postal Code " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required> -->
